@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Manrope", sans-serif;
+  list-style: none;
+  font-weight: 400;
+}
+
+body {
+  -webkit-app-region: drag;
+}
+
+button,
+a {
+  -webkit-app-region: no-drag;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  color: #f4f4f4;
+}
+
+.intro-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  background-color: #2c2c2c;
+}
+
+.intro-container .wrapper {
+  width: 80%;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.5em;
+  margin: 1.25em 0;
+}
+
+.btn-container {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+#cta-start {
+  cursor: pointer;
+  color: #f4f4f4;
+  width: 100px;
+  height: 30px;
+  border: 0;
+  border-radius: 4px;
+  background-image: linear-gradient(to right, #6253e1, #852d91);
+}
+
+#cta-tutorial {
+  --border-width: 1px;
+  --border-radius: 5px;
+  cursor: pointer;
+  color: #f4f4f4;
+  width: 100px;
+  height: 30px;
+  border: 0;
+  border-radius: var(--border-radius);
+  margin-left: 10px;
+  position: relative;
+  background: linear-gradient(to right, #6253e1, #852d91);
+  z-index: 1;
+}
+
+#cta-tutorial::before {
+  content: "";
+  display: block;
+  height: calc(100% - calc(var(--border-width) * 2));
+  width: calc(100% - calc(var(--border-width) * 2));
+  background: #2c2c2c;
+  border-radius: calc(var(--border-radius) - var(--border-width));
+  position: absolute;
+  top: var(--border-width);
+  left: var(--border-width);
+  z-index: -1;
+}
+
+.links {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  padding: 20px 0;
+  border-top: 1px solid #9b9b9b;
+}
+
+.links a {
+  text-decoration: none;
+  color: #f4f4f4;
+  margin-bottom: 15px;
+  width: fit-content;
+}
+
+.version-tab {
+  color: #d5d5d5;
+  font-size: 12px;
+  position: absolute;
+  bottom: 10px;
+  right: 30px;
+}
+
+.img-container {
+  width: 50%;
+  height: 100vh;
+  background-image: url("../images/intro-bg-img.jpg");
+}

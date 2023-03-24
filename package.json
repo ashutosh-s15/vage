@@ -1,0 +1,20 @@
+{
+  "name": "vage",
+  "productName": "vage",
+  "version": "1.0.0",
+  "description": "AI Virtual Canvas app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Ashutosh Singh",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^23.1.1",
+    "python-shell": "^5.0.0",
+    "toastify-js": "^1.12.0"
+  },
+  "devDependencies": {
+    "electron-packager": "^17.1.1"
+  }
+}

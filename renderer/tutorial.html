@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/tutorial.css" />
+    <script src="./js/tutorial.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="app">
+      <nav id="toc">
+        <div class="logo">
+          <img src="./images/text-logo.png" alt="logo" />
+        </div>
+        <span>Overview</span>
+
+        <span>Gestures</span>
+        <ul>
+          <li><a href="#section-1">Selection</a></li>
+          <li><a href="#section-2">Draw</a></li>
+        </ul>
+
+        <span>Tools</span>
+        <ul>
+          <li><a href="#section-3">Pen</a></li>
+          <li><a href="#section-4">Eraser</a></li>
+        </ul>
+
+        <span>Shapes</span>
+        <ul>
+          <li><a href="#section-5">Rectangle</a></li>
+          <li><a href="#section-6">Ellipse</a></li>
+          <li><a href="#section-7">Circle</a></li>
+          <li><a href="#section-8">Fill Shape</a></li>
+        </ul>
+
+        <span>Others</span>
+        <ul>
+          <li><a href="#section-9">Clear Canvas</a></li>
+          <li><a href="#section-10">Save Sketch</a></li>
+        </ul>
+
+        <button id="cta-start">Get Started</button>
+      </nav>
+
+      <div class="container">
+        <span>Tutorial</span>
+        <div style="font-size: 1.25rem; margin-top: 0.5em">
+          Get started with Vage and learn by following the below examples and
+          description.
+        </div>
+        <div class="overview-container">
+          <h2>Overview</h2>
+          <div>
+            Vage is a AI Virtual Canvas that allows you to draw, create shapes
+            and save your work by just using simple hand gestures.
+          </div>
+        </div>
+        <div class="section-container gesture-container">
+          <h2>Gestures</h2>
+          <div class="gesture section" id="section-1">
+            <h3>Selection</h3>
+            <div class="description">
+              To enter Selection mode, raise your middle and index fingers. This
+              allows you to select tools, shapes, and other options.
+            </div>
+            <img
+              src="./images/placeholder.png"
+              alt="demo"
+              class="demo"
+              style="width: 600px"
+            />
+          </div>
+          <div class="gesture section" id="section-2">
+            <h3>Draw</h3>
+            <div class="description">
+              To enter Drawing mode, raise your index finger. This allows you to
+              draw on the canvas with the help of pen tool.
+            </div>
+            <img
+              src="./images/placeholder.png"
+              alt="demo"
+              class="demo"
+              style="width: 600px"
+            />
+          </div>
+        </div>
+        <div class="section-container tools-container">
+          <h2>Tools</h2>
+          <div class="tool section" id="section-3">
+            <h3>Pen Tool</h3>
+            <div class="description">
+              Use Selection gesture to select the Pen tool from the toolbar and
+              draw on canvas using Drawing gesture.
+            </div>
+            <img
+              src="./images/placeholder.png"
+              alt="demo"
+              class="demo"
+              style="width: 600px"
+            />
+            <div class="use">
+              <h4>Stroke color</h4>
+              <div>
+                To change the stroke color, select a color from the color
+                palette.
+              </div>
+              <img
+                src="./images/placeholder.png"
+                alt="demo"
+                class="demo"
+                style="width: 600px"
+              />
+              <h4>Stroke width</h4>
+              <div>
+                To adjust the stroke width, choose an option from the stroke
+                width panel located on the right side of the canvas.
+              </div>
+              <img
+                src="./images/placeholder.png"
+                alt="demo"
+                class="demo"
+                style="width: 600px"
+              />
+            </div>
+          </div>
+          <div class="tool section" id="section-4">
+            <h3>Eraser</h3>
+            <div class="description">
+              Use Selection gesture to select the Eraser tool from the toolbar
+              and start erasing your sketch using Drawing gesture.
+            </div>
+            <img
+              src="./images/placeholder.png"
+              alt="demo"
+              class="demo"
+              style="width: 600px"
+            />
+            <div class="use">
+              <h4>Size</h4>
+              <div>To adjust the Eraser size, use the following gesture</div>
+              <img
+                src="./images/placeholder.png"
+                alt="demo"
+                class="demo"
+                style="width: 600px"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="section-container shape-container">
+          <h2>Shapes</h2>
+          <div class="shape section" id="section-5">
+            <h3>Rectangle</h3>
+            <div class="description">
+              Use Selection gesture to select the Rectangle shape from the
+              toolbar. Then, use your index finger and thumb to indicate the
+              size and position of the rectangle, and your pinky finger to place
+              it on the canvas.
+            </div>
+            <img
+              src="./images/placeholder.png"
+              alt="demo"
+              class="demo"
+              style="width: 600px"
+            />
+            <div class="use">
+              <h4>Shape color</h4>
+              <div>
+                To change the shape color, select a color from the color
+                palette.
+              </div>
+              <img
+                src="./images/placeholder.png"
+                alt="demo"
+                class="demo"
+                style="width: 600px"
+              />
+              <h4>Size</h4>
+              <div>To adjust the Rectangle size, use the following gesture</div>
+              <img
+                src="./images/placeholder.png"
+                alt="demo"
+                class="demo"
+                style="width: 600px"
+              />
+            </div>
+          </div>
+          <div class="shape section" id="section-6">
+            <h3>Ellipse</h3>
+            <div class="description">
+              Use Selection gesture to select the Ellipse shape from the
+              toolbar. Then, use your index finger to indicate the position of
+              the Ellipse, and your pinky finger to place it on the canvas.
+            </div>
+            <img
+              src="./images/placeholder.png"
+              alt="demo"
+              class="demo"
+              style="width: 600px"
+            />
+            <div class="use">
+              <h4>Shape color</h4>
+              <div>
+                To change the shape color, select a color from the color
+                palette.
+              </div>
+              <img
+                src="./images/placeholder.png"
+                alt="demo"
+                class="demo"
+                style="width: 600px"
+              />
+              <h4>Size</h4>
+              <div>To adjust the Ellipse size, use the following gesture</div>
+              <img
+                src="./images/placeholder.png"
+                alt="demo"
+                class="demo"
+                style="width: 600px"
+              />
+            </div>
+          </div>
+          <div class="shape section" id="section-7">
+            <h3>Circle</h3>
+            <div class="description">
+              Use Selection gesture to select the Circle shape from the toolbar.
+              Then, use your index finger and thumb to indicate the size and
+              position of the Circle, and your pinky finger to place it on the
+              canvas.
+            </div>
+            <img
+              src="./images/placeholder.png"
+              alt="demo"
+              class="demo"
+              style="width: 600px"
+            />
+            <div class="use">
+              <h4>Shape color</h4>
+              <div>
+                To change the shape color, select a color from the color
+                palette.
+              </div>
+              <img
+                src="./images/placeholder.png"
+                alt="demo"
+                class="demo"
+                style="width: 600px"
+              />
+              <h4>Size</h4>
+              <div>To adjust the Circle size, use the following gesture</div>
+              <img
+                src="./images/placeholder.png"
+                alt="demo"
+                class="demo"
+                style="width: 600px"
+              />
+            </div>
+          </div>
+          <div class="shape section" id="section-8">
+            <h3>Fill Shape</h3>
+            <div class="description">
+              The Fill Shape option allows you to toggle between filling and
+              removing the fill color from shapes before drawing the shapes. Use
+              Selection gesture to toggle Fill shape from the toolbar.
+            </div>
+            <img
+              src="./images/placeholder.png"
+              alt="demo"
+              class="demo"
+              style="width: 600px"
+            />
+          </div>
+        </div>
+        <div class="section-container others-container">
+          <h2>Others</h2>
+          <div class="other-option section" id="section-9">
+            <h3>Clear Canvas</h3>
+            <div class="description">
+              The Clear Canvas button enables you to easily erase everything on
+              the canvas and start fresh. Use Selection gesture to click the
+              Clear Canvas button located on the right side of the canvas.
+            </div>
+            <img
+              src="./images/placeholder.png"
+              alt="demo"
+              class="demo"
+              style="width: 600px"
+            />
+          </div>
+          <div class="other-option section" id="section-10">
+            <h3>Save Sketch</h3>
+            <div class="description">
+              The Download button enables you to easily save your sketch as a
+              JPG image file on your device. Use Selection gesture to click the
+              Download button on the toolbar.
+            </div>
+            <img
+              src="./images/placeholder.png"
+              alt="demo"
+              class="demo"
+              style="width: 600px"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
