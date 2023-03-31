@@ -143,6 +143,8 @@ a {
 .demo {
   width: 600px;
   margin: 1em 0;
+  border: 1px solid #852d91;
+  border-top: 15px solid #852d91;
 }
 
 .use h4 {
