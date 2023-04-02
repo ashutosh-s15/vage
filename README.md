@@ -8,6 +8,8 @@ The Vage is a AI virtual canvas desktop application built using `Electron` and a
 
 ## Usage
 
+Install dependencies:
+
 ```bash
 pip install opencv-python mediapipe
 ```
