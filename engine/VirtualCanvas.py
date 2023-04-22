@@ -1,7 +1,8 @@
+import os
 import cv2
 import numpy as np
-import os
 import HandTrackingModule as htm
+from StateManager import StateManager
 
 class virtualCanvas:
     def __init__(self):
@@ -43,6 +44,8 @@ class virtualCanvas:
         self.cap.set(3, 1280)
         self.cap.set(4, 720)
 
+        self.canvasState = StateManager() # initiating canvas state instance
+
         self.detector = htm.handDetector(detectionCon=0.85)
         self.xp, self.yp = 0, 0
         self.imgCanvas = np.zeros((720, 1280, 3), np.uint8)
@@ -55,6 +58,13 @@ class virtualCanvas:
             # Find Hand landmarks
             img = self.detector.findHands(img)
             lmList = self.detector.findPosition(img, draw=False)
+
+            key = cv2.waitKey(1) & 0xFF
+            if key == ord('u'):
+                self.imgCanvas = self.canvasState.prevState()
+
+            if key == ord('r'):
+                self.imgCanvas = self.canvasState.nextState()
 
             if len(lmList) != 0:
                 # Tip of index and middle fingers
@@ -175,6 +185,9 @@ class virtualCanvas:
                 # If drawing mode - Index finger is up
                 if fingers[1] and fingers[2] == False:
                     cv2.circle(img, (x1, y1), 15, self.drawColor, cv2.FILLED)
+
+                    # Capture current state of canvas in history
+                    self.canvasState.addState(np.copy(self.imgCanvas))
 
                     if self.xp == 0 and self.yp == 0:
                         self.xp, self.yp = x1, y1
