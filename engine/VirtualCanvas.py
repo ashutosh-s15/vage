@@ -84,13 +84,14 @@ class virtualCanvas:
         self.cap.set(3, 1280)
         self.cap.set(4, 720)
 
-        self.canvasState = stateManager() # Initiating canvas state instance
-
         self.detector = htm.handDetector(detectionCon=0.85)
         self.xp, self.yp = 0, 0
         self.imgCanvas = np.zeros((720, 1280, 3), np.uint8)
 
+        self.canvasListState = stateManager() # Initiating canvas list state instance
+        self.canvasState = stateManager() # Initiating canvas state instance
         self.importsState = stateManager() # Initiating imports state instance
+
     def createImageImport(self):
         filePath = filedialog.askopenfilename(filetypes=[("Image files", "*.jpg;*.jpeg;*.png;*.bmp;*.gif")])
         image = imageImport(filePath)
@@ -115,6 +116,20 @@ class virtualCanvas:
             (currentImport.pos[0] + currentImport.shape[1], currentImport.pos[1] + currentImport.shape[0]),
             (233, 140, 12), 4
         )
+        
+    def addNewCanvas(self, currentCanvas, img):
+        self.canvasListState.addState(np.copy(currentCanvas))
+
+        # self.image = cv2.imread("C:\\Users\\Ashutosh\\Downloads\\vage_test.png")
+
+        # if self.image is not None:
+        #     # Resize the image to fit the canvas
+        #     resized_image = cv2.resize(self.image, (80, 80))
+
+        #     # Overlay the resized image onto the canvas at the specified position
+        #     img[self.image_y: self.image_y+resized_image.shape[0], self.image_x: self.image_x+resized_image.shape[1]] = resized_image
+        
+        return np.zeros((720, 1280, 3), np.uint8)
 
 
     def run(self):
@@ -131,6 +146,22 @@ class virtualCanvas:
                 self.imgCanvas = self.canvasState.prevState()
             if key == ord('r') or key == ord('R'):
                 self.imgCanvas = self.canvasState.nextState()
+
+            if key == ord('j') or key == ord('J'):
+                # saving the current canvas before returning to the previous canvas if the current canvas is the latest canvas
+                currentIndex = self.canvasListState.current_state
+                canvasList = self.canvasListState.history
+                if currentIndex == len(canvasList) - 1 and not np.array_equal(self.imgCanvas, canvasList[currentIndex]):
+                  self.addNewCanvas(self.imgCanvas, img)
+
+                prevCanvas = self.canvasListState.prevState()
+                if prevCanvas is not None:
+                    self.imgCanvas = prevCanvas
+
+            if key == ord('l') or key == ord('L'):
+                nextCanvas = self.canvasListState.nextState()
+                if nextCanvas is not None:
+                    self.imgCanvas = nextCanvas
 
             if key == ord('a') or key == ord('A'):
                 self.importsState.prevState()
@@ -247,17 +278,25 @@ class virtualCanvas:
 
                     if 30 < x1 < 90:
                         if 164 < y1 < 224:
+                            self.header = self.overlayList[17]
                             self.sidebar = self.sidebarList[1]
                             self.currTool = 'addImage'
                             if time.time() - self.start_time > self.time_limit:
                               self.createImageImport()
                               self.start_time = time.time()
                         if 260 < y1 < 320:
+                            self.header = self.overlayList[17]
                             self.sidebar = self.sidebarList[2]
                             self.currTool = 'selectImport'
                         if 360 < y1 < 420:
+                            self.header = self.overlayList[17]
                             self.sidebar = self.sidebarList[3]
                             self.currTool = 'addCanvas'
+                             # adding new canvas
+                            if time.time() - self.start_time > self.time_limit:
+                                self.imgCanvas = self.addNewCanvas(self.imgCanvas, img)
+                                # Update the start time
+                                self.start_time = time.time()
 
                     if x1 > 1188:
                         self.sidebar = self.sidebarList[0]
@@ -282,7 +321,8 @@ class virtualCanvas:
 
                 # If drawing mode - Index finger is up
                 if fingers[1] and fingers[2] == False:
-                    cv2.circle(img, (x1, y1), 15, self.drawColor, cv2.FILLED)
+                    pointerColor = (233, 140, 12) if(self.currTool == 'selectImport') else self.drawColor
+                    cv2.circle(img, (x1, y1), 15, pointerColor, cv2.FILLED)
 
                     # Capture current state of canvas in history
                     self.canvasState.addState(np.copy(self.imgCanvas))
@@ -392,6 +432,8 @@ class virtualCanvas:
 
             # Adding logo to canvas
             # img[650:710, 10:70] = self.logo
+
+            img = cv2.putText(img, f'{self.canvasListState.current_state + 1}/{len(self.canvasListState.history)}', (48, 398), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
 
             cv2.imshow("Image", img)
             # cv2.imshow("Canvas", imgCanvas)

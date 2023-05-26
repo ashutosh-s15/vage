@@ -32,7 +32,7 @@ function startVirtualCanvas() {
 
   Toastify({
     text: "Launching Virtual Canvas. Please wait.",
-    duration: 12000,
+    duration: 16000,
     close: false,
     gravity: "bottom",
     position: "right",
