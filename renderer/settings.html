@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/settings.css" />
+    <script src="./js/settings.js" defer></script>
+    <title>Settings</title>
+  </head>
+  <body>
+    <div class="app">
+      <a href="./index.html">
+        <div class="back-btn">
+          <img src="./images/left-arrow.png" alt="back" />
+        </div>
+      </a>
+    </div>
+    <div class="settings-list-container">
+      <h1>Settings</h1>
+      <div class="setting-container">
+        <h3>Canvas background</h3>
+        <div class="dropdown">
+          <button class="dropdown-btn">Select background</button>
+          <div id="dropdown-content" class="dropdown-content">
+            <div class="background-option" data-background="background1">
+              <img
+                src="./images/background-options/canvas-bg-black.png"
+                alt="black"
+              />
+            </div>
+            <div class="background-option" data-background="background2">
+              <img
+                src="./images/background-options/canvas-bg-blue.png"
+                alt="blue"
+              />
+            </div>
+            <div class="background-option" data-background="background3">
+              <img
+                src="./images/background-options/canvas-bg-grid.png"
+                alt="grid"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="setting-container">
+        <h3>Webcam Index</h3>
+        <input type="text" placeholder="Enter a number" />
+      </div>
+      <button id="cta-save">Save changes</button>
+    </div>
+  </body>
+</html>
+>

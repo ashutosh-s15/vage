@@ -25,7 +25,7 @@ class handDetector():
         if self.results.multi_hand_landmarks:
             for handLms in self.results.multi_hand_landmarks:
                 if draw:
-                    self.mpDraw.draw_landmarks(img, handLms, self.mpHands.HAND_CONNECTIONS, self.mpDraw.DrawingSpec(color=(233, 140, 12), thickness=2, circle_radius=2))
+                    self.mpDraw.draw_landmarks(img, handLms, self.mpHands.HAND_CONNECTIONS, self.mpDraw.DrawingSpec(color=(44, 44, 44), thickness=0, circle_radius=0), self.mpDraw.DrawingSpec(color=(44, 44, 44), thickness=2, circle_radius=1))
 
         return img
 
@@ -39,8 +39,8 @@ class handDetector():
                 h, w, c = img.shape
                 cx, cy = int(lm.x*w), int(lm.y*h)
                 self.lmList.append([id, cx, cy])
-                if draw:
-                    cv2.circle(img, (cx, cy), 7, (255, 0, 255), cv2.FILLED)
+                # if draw:
+                #     cv2.circle(img, (cx, cy), 7, (44, 44, 44), cv2.FILLED)
 
         return self.lmList
 
